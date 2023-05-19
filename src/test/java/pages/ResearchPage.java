@@ -11,8 +11,11 @@ public class ResearchPage extends PageBase {
     public WebElement searchForTraining;
 
     @FindBy(xpath = "//tbody//tr")
-    public List<WebElement> records;
+    public List<WebElement> allTableRows;
 
     @FindBy(xpath = "//tbody//td")
-    public List<WebElement> tableData;
+    public List<WebElement> allTableData;
+
+    @FindBy(xpath = "//tbody//td[1]")
+    public List<WebElement> nameColumnData;
 }

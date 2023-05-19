@@ -16,7 +16,7 @@ import org.junit.runner.RunWith;
         },
         publish = true, // to generate public report with link in console
         dryRun = false, // to execute feature files and get code snippets
-        tags = "@wip" // to create custom execution suite
+        tags = "" // to create custom execution suite
 )
 public class CukesRunner {
 }

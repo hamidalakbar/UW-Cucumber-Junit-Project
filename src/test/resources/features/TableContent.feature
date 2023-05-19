@@ -1,6 +1,7 @@
 @ui @regression
 Feature: Content table functionality
 
+
   Background: User is on "Research Administration Learning" page
     Given user is on "Research Administration Learning" web page
 

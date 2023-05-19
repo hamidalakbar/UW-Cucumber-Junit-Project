@@ -5,6 +5,9 @@ import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import pages.ResearchPage;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import static utilities.ConfigurationReader.*;
 
 import static utilities.Driver.*;
@@ -39,12 +42,23 @@ public class Research_StepDefinitions {
 
     @Then("user sees {int} records on the web page")
     public void user_sees_records_on_the_web_page(int expectedRecords) {
-        Assert.assertEquals(expectedRecords, researchPage.records.size());
+        Assert.assertEquals(expectedRecords, researchPage.allTableRows.size());
     }
 
     @Then("columns Name, LifeCycle, Type, Length have data")
     public void columns_name_life_cycle_type_length_have_data() {
-        researchPage.tableData.forEach(c -> Assert.assertNotNull(c));
+        researchPage.allTableData.forEach(c -> Assert.assertNotNull(c));
+    }
+
+    @When("user enters {string} search criteria")
+    public void user_enters_search_criteria(String text) {
+        researchPage.searchForTraining.sendKeys(text + Keys.ENTER);
+    }
+
+    @Then("user should see given records on web page")
+    public void user_should_see_given_records_on_web_page(List<String> expectedRecords) {
+        List<String> actualRecords = researchPage.nameColumnData.stream().map(f -> f.getText()).collect(Collectors.toList());
+        Assert.assertEquals(actualRecords, expectedRecords);
     }
 
 }
