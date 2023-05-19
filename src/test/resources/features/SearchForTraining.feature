@@ -4,7 +4,7 @@ Feature: Search for training functionality
   Background: User is on "Research Administration Learning" page
     Given user is on "Research Administration Learning" web page
 
-  Scenario: Verify that user is able to enter data into "Search for training" box
+  Scenario: Verify that user can enter data into "Search for training" box
     Then user should be able to enter "text" into the "Search for training"
 
   Scenario: Verify that user sees given records after entering search criteria

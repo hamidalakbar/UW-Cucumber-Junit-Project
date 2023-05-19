@@ -58,7 +58,6 @@ public class Research_StepDefinitions {
         List<String> actualRecords = researchPage.nameColumnData.stream().map(f -> f.getText()).collect(Collectors.toList());
         Assert.assertEquals(actualRecords, expectedRecords);
     }
-
 }
 
 class NoSuchWebPageException extends RuntimeException {
