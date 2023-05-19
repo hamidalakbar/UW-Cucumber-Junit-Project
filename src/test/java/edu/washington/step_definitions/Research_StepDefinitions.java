@@ -1,16 +1,14 @@
-package step_definitions;
+package edu.washington.step_definitions;
 
+import edu.washington.pages.ResearchPage;
+import edu.washington.utilities.ConfigurationReader;
+import edu.washington.utilities.Driver;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
-import pages.ResearchPage;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
-import static utilities.ConfigurationReader.*;
-
-import static utilities.Driver.*;
 
 public class Research_StepDefinitions {
 
@@ -21,7 +19,7 @@ public class Research_StepDefinitions {
         switch (webPage.toLowerCase()) {
             case "research administration learning":
             case "research":
-                getDriver().get(getProperty("researchUrl"));
+                Driver.getDriver().get(ConfigurationReader.getProperty("researchUrl"));
                 break;
             default:
                 throw new NoSuchWebPageException(webPage);

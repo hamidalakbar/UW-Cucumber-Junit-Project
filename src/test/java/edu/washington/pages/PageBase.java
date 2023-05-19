@@ -1,7 +1,7 @@
-package pages;
+package edu.washington.pages;
 
+import edu.washington.utilities.Driver;
 import org.openqa.selenium.support.PageFactory;
-import utilities.Driver;
 
 public abstract class PageBase {
 

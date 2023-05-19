@@ -1,4 +1,4 @@
-package runners;
+package edu.washington.runners;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -8,11 +8,12 @@ import org.junit.runner.RunWith;
 
 @CucumberOptions(
         features = "src/test/resources/features", // feature files package
-        glue = "step_definitions", // step definitions package
+        glue = "edu/washington/step_definitions", // step definitions package
         plugin = {
                 "html:target/cucumber-reports.html", // for HTML reports
                 "me.jvt.cucumber.report.PrettyReports:target/cucumber", // for Cucumber-Maven reports
-                "rerun:target/rerun.txt" // to track failed scenarios for further execution
+                "rerun:target/rerun.txt", // to track failed scenarios for further execution
+                "json:target/cucumber.json" // to get report from Jenkins
         },
         publish = true, // to generate public report with link in console
         dryRun = false, // to execute feature files and get code snippets

@@ -1,4 +1,4 @@
-package utilities;
+package edu.washington.utilities;
 
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
@@ -7,8 +7,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 import java.util.Set;
-
-import static utilities.Driver.getDriver;
 
 public class BrowserUtils {
 
@@ -38,15 +36,15 @@ public class BrowserUtils {
     public static void switchWindowAndVerify(String expectedInUrl, String expectedInTitle) {
 
         // To get all window handles as a Set of Strings
-        Set<String> allWindowHandles = getDriver().getWindowHandles();
+        Set<String> allWindowHandles = Driver.getDriver().getWindowHandles();
 
         for (String eachWindowHandle : allWindowHandles) {
             // Switching to window by using its handle
-            getDriver().switchTo().window(eachWindowHandle);
+            Driver.getDriver().switchTo().window(eachWindowHandle);
             // Condition
-            if (getDriver().getCurrentUrl().contains(expectedInUrl)) {
+            if (Driver.getDriver().getCurrentUrl().contains(expectedInUrl)) {
                 // To get a title as a String
-                String actualTitle = getDriver().getTitle();
+                String actualTitle = Driver.getDriver().getTitle();
                 // Verification of title
                 Assert.assertTrue(actualTitle.contains(expectedInTitle));
                 break;
@@ -61,7 +59,7 @@ public class BrowserUtils {
      */
     public static void verifyTitle(String expectedTitle) {
         // Getting actual title
-        String actualTitle = getDriver().getTitle();
+        String actualTitle = Driver.getDriver().getTitle();
         // Assertion
         Assert.assertEquals(actualTitle, expectedTitle);
     }
@@ -73,7 +71,7 @@ public class BrowserUtils {
     */
     public static void verifyTitleContains(String expectedInTitle) {
         // Getting actual title
-        String actualTitle = getDriver().getTitle();
+        String actualTitle = Driver.getDriver().getTitle();
         // Assertion
         Assert.assertTrue(actualTitle.contains(expectedInTitle));
     }
@@ -84,7 +82,7 @@ public class BrowserUtils {
         <-- return type void
      */
     public static void waitForInvisibilityOf(WebElement target) {
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
         wait.until(ExpectedConditions.invisibilityOf(target));
     }
 
@@ -94,6 +92,6 @@ public class BrowserUtils {
     }
 
     public static void verifyUrlContains(String text) {
-        Assert.assertTrue(getDriver().getCurrentUrl().contains(text));
+        Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains(text));
     }
 }

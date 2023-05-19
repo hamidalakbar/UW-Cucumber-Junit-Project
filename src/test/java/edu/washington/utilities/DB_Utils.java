@@ -1,4 +1,4 @@
-package utilities;
+package edu.washington.utilities;
 
 import java.sql.*;
 import java.util.ArrayList;

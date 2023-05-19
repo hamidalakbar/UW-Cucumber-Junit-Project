@@ -1,10 +1,10 @@
-package step_definitions;
+package edu.washington.step_definitions;
 
+import edu.washington.utilities.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import utilities.Driver;
 
 public class Hooks {
 

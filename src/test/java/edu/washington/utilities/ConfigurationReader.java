@@ -1,4 +1,4 @@
-package utilities;
+package edu.washington.utilities;
 
 import java.io.FileInputStream;
 import java.io.IOException;
