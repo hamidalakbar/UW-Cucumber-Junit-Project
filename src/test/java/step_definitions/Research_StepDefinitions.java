@@ -36,9 +36,15 @@ public class Research_StepDefinitions {
     public void no_search_criteria_is_entered() {
         researchPage.searchForTraining.clear();
     }
+
     @Then("user sees {int} records on the web page")
     public void user_sees_records_on_the_web_page(int expectedRecords) {
         Assert.assertEquals(expectedRecords, researchPage.records.size());
+    }
+
+    @Then("columns Name, LifeCycle, Type, Length have data")
+    public void columns_name_life_cycle_type_length_have_data() {
+        researchPage.tableData.forEach(c -> Assert.assertNotNull(c));
     }
 
 }
