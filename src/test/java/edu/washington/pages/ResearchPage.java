@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class ResearchPage extends PageBase {
+public class ResearchPage extends BasePage {
 
     @FindBy(id = "q")
     public WebElement searchForTraining;
